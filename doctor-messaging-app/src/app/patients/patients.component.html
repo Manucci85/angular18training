@@ -1,0 +1,8 @@
+<div class="patients-container">
+  <h1>Liste des Patients</h1>
+  <ul>
+    <li *ngFor="let patient of patients">
+      {{ patient.name }} ({{ patient.email }})
+    </li>
+  </ul>
+</div>
