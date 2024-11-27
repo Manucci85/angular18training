@@ -1,0 +1,7 @@
+<h1>Gestion des Patients</h1>
+<button mat-raised-button color="primary" (click)="addPatient()">Ajouter un Patient</button>
+<mat-list>
+  <mat-list-item *ngFor="let patient of patients">
+    {{ patient.name }} - {{ patient.email }}
+  </mat-list-item>
+</mat-list>

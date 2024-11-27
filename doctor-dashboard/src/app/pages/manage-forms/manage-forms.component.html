@@ -1,0 +1,10 @@
+<h1>Créer un Formulaire</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Nom du Patient" formControlName="patientName">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Questionnaire" formControlName="questions"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Envoyer</button>
+</form>

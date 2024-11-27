@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span>Doctor Dashboard</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a mat-list-item routerLink="/patients" routerLinkActive="active">Gestion des Patients</a>
+      <a mat-list-item routerLink="/forms" routerLinkActive="active">Gestion des Formulaires</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet> <!-- Assurez-vous que ceci est présent -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

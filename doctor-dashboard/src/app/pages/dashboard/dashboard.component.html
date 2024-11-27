@@ -1,0 +1,14 @@
+<h1>Tableau de Bord</h1>
+<button mat-raised-button color="primary" routerLink="/forms">Créer un formulaire</button>
+<mat-table [dataSource]="formData" class="mat-elevation-z8">
+  <ng-container matColumnDef="patient">
+    <mat-header-cell *matHeaderCellDef> Patient </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.patient}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
