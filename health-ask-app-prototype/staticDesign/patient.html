@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Client</title>
+  <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+<div class="client-space">
+  <!-- Header -->
+  <header class="header">
+    <h1 class="logo">Application Médicale</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <section class="charte">
+      <h2>Charte d'utilisation</h2>
+      <p>
+        Afin de vous offrir un suivi médical optimal et de permettre à votre médecin de communiquer avec vous via cette application, vous devez accepter la présente charte d'utilisation.
+      </p>
+      <p>
+        Cette application stocke vos données personnelles et médicales conformément aux lois européennes et belges sur la protection des données. Ces données sont utilisées uniquement pour la continuité de vos soins et ne seront jamais partagées sans votre consentement.
+      </p>
+      <p>
+        Vous pouvez à tout moment :
+      </p>
+      <ul>
+        <li>
+          <a href="/view-data.html">Consulter les données vous concernant</a>
+        </li>
+        <li>
+          <a href="/delete-data-request.html">Faire une demande de suppression de vos données</a>
+        </li>
+      </ul>
+      <p>
+        En acceptant cette charte, vous autorisez :
+      </p>
+      <ul>
+        <li>
+          Votre médecin à utiliser cette application pour communiquer avec vous et suivre vos données médicales.
+        </li>
+        <li>
+          L'application à stocker vos données personnelles et médicales dans le respect des lois applicables.
+        </li>
+      </ul>
+      <p>
+        Pour plus d'informations, veuillez consulter :
+      </p>
+      <ul>
+        <li>
+          <a href="https://gdpr-info.eu/" target="_blank">Le texte complet du RGPD</a>
+        </li>
+        <li>
+          <a href="https://www.privacycommission.be/fr" target="_blank">Les directives belges sur le RGPD</a>
+        </li>
+        <li>
+          <a href="https://www.health.belgium.be/fr/sante/professions-de-sante/statistiques-et-planning/protection-des-donnees" target="_blank">Les lois sur le traitement des données médicales en Belgique</a>
+        </li>
+      </ul>
+      <form id="accept-charte-form" onsubmit="acceptCharte(event)">
+        <button type="submit" class="btn">Accepter la charte</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<script>
+  function acceptCharte(event) {
+    event.preventDefault();
+    alert("Charte acceptée. Vous pouvez accéder à l'espace client.");
+    window.location.href = "/health-ask-app-prototype/health-ask-app-prototype/staticDesign/patient-dashboard.html"; // Redirection vers l'espace client
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+Voici un **plan structuré** pour développer votre application en **Angular 19** avec **Material Design**, un backend **Spring Boot** hébergé dans Kubernetes, et une base de données **MySQL** dans le cloud. Ce plan inclut la configuration de l'authentification Google et email, ainsi que les étapes pour implémenter chaque partie.
+
+---
+
+## **Plan du projet**
+
+### **1. Découpage des composants Angular**
+
+#### **Composants Angular :**
+1. **HeaderComponent** : Barre de navigation pour la gestion des liens (Accueil, Dashboard, etc.).
+2. **FooterComponent** : Pied de page.
+3. **LoginComponent** : Page de connexion avec authentification Google et email.
+4. **DashboardComponent** : Vue principale pour afficher les métriques et actions.
+   - **FormulairesComponent** : Section pour afficher les formulaires cliquables.
+   - **UserDataComponent** : Section pour afficher les données de l'utilisateur.
+   - **DeleteDataComponent** : Section pour afficher les informations et confirmer la suppression des données.
+5. **ModalComponent** : Composant réutilisable pour les modals.
+6. **FormDetailComponent** : Affichage des détails d'un formulaire spécifique.
+7. **NotFoundComponent** : Gestion des pages non trouvées.
+
+---
+
+### **2. Liste des tâches**
+
+#### **Frontend (Angular)**
+1. **Configuration initiale du projet Angular** :
+   - Installer Angular CLI et créer un projet Angular.
+   - Ajouter Angular Material et configurer les couleurs.
+2. **Créer les composants Angular** :
+   - Découper les vues en composants individuels.
+3. **Intégrer Angular Material Design** :
+   - Configurer Material Design pour boutons, tableaux, modals, etc.
+4. **Configurer le routing** :
+   - Définir les routes (`/login`, `/dashboard`, etc.).
+5. **Gérer les états et services** :
+   - Créer un service `AuthService` pour l'authentification.
+   - Créer un service `UserDataService` pour les interactions avec le backend.
+6. **Configurer l'authentification Google** :
+   - Intégrer `@angular/fire` pour Firebase ou utiliser OAuth avec Google Identity.
+7. **Implémenter les fonctionnalités** :
+   - Afficher les métriques, formulaires, et données utilisateur.
+   - Ajouter les interactions pour les boutons et modals.
+8. **Déployer sur Kubernetes** :
+   - Construire l’image Docker et configurer le déploiement dans Kubernetes.
+
+---
+
+#### **Backend (Spring Boot)**
+1. **Créer le projet Spring Boot** :
+   - Initialiser avec Spring Boot 3.x, Spring Security, et MySQL.
+2. **Configurer la base de données** :
+   - Définir le modèle relationnel pour les utilisateurs, formulaires, et données.
+   - Implémenter les entités JPA.
+3. **Configurer la sécurité avec Google OAuth** :
+   - Utiliser Spring Security avec OAuth 2.0 pour Google Login.
+   - Ajouter une alternative pour les connexions avec email/mot de passe.
+4. **Créer les services REST** :
+   - **Authentification** :
+     - Endpoint pour gérer Google Login et le token JWT.
+   - **Données utilisateur** :
+     - CRUD pour les données et formulaires.
+   - **Suppression des données** :
+     - Endpoint pour gérer la suppression selon le RGPD.
+5. **Déployer le backend sur Kubernetes** :
+   - Construire l’image Docker et déployer dans un cluster Kubernetes.
+   - Configurer les secrets Kubernetes pour la base de données MySQL et OAuth.
+
+---
+
+### **3. Tâches de déploiement**
+
+1. **Configurer Kubernetes** :
+   - Déployer le backend et le frontend dans des conteneurs séparés.
+   - Ajouter des secrets pour sécuriser les variables sensibles (DB, Google API).
+2. **Configurer MySQL dans le cloud** :
+   - Créer une base de données MySQL dans un service cloud (AWS RDS, GCP Cloud SQL, etc.).
+   - Relier le backend à la base de données via des variables d’environnement.
+
+---
+
+### **4. Implémentation du frontend**
+
+Commençons par les **étapes Angular**.
+
+#### **Étape 1 : Configuration initiale**
+1. **Créer le projet Angular** :
+   ```bash
+   ng new medical-dashboard --routing --style=scss
+   cd medical-dashboard
+   ```
+2. **Ajouter Angular Material** :
+   ```bash
+   ng add @angular/material
+   ```
+   - Choisissez un thème compatible avec vos couleurs.
+
+#### **Étape 2 : Créer les composants**
+Créez les composants nécessaires :
+```bash
+ng generate component header
+ng generate component footer
+ng generate component login
+ng generate component dashboard
+ng generate component dashboard/formulaires
+ng generate component dashboard/user-data
+ng generate component dashboard/delete-data
+ng generate component modal
+```
+
+#### **Étape 3 : Configurer Angular Material**
+Ajoutez les modules Angular Material dans `app.module.ts` :
+```typescript
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+
+@NgModule({
+  declarations: [...],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatCardModule,
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+---
+
+### **Prochaine étape**
+Je vous propose de configurer la structure initiale et d'ajouter un premier composant (`HeaderComponent`) pour intégrer Angular Material. Voulez-vous démarrer avec cela ?

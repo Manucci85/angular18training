@@ -1,0 +1,9 @@
+suite à la page d'acceuil que tu as généré en html et css, j'aimerai que tu me génères dans le même style, une page html et le style pour un dashboard. Celui-ci doit me permettre de voir les métriques relatives aux patients et aux formulaires envoyés tels que ceux en envoyés, ceux répondus par les patients: appuies toi sur les connaissances actuelles pour concevoir une page d'accueil ergonomique et intuitive.
+
+
+
+
+
+gestion des patients:
+
+merci pour la page d'accueil et la page dashboard, j'aimerai maintenant que tu me génères dans la même idée, la page gestion des patients, cette page doit montrer des métriques relatives aux patients et une section permettant d'accéder à la liste des patients enregistrés dans l'application. la section des patients sera un tableau me permettant de les visualiser dans la même page. Ensuite, pour chaque patient, je veux pouvoir visualiser la fiche, modifier la fiche ou supprimer le patient.

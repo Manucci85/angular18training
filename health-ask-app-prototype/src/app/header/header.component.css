@@ -1,0 +1,42 @@
+/* Style pour la barre de navigation Material */
+mat-toolbar {
+    background-color: #1976d2; /* Couleur primaire */
+    color: white; /* Couleur du texte */
+    padding: 0 1rem; /* Espacement horizontal */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 1.5rem; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    color: white; /* Couleur du texte */
+  }
+  
+  /* Spacer pour pousser le nav à droite */
+  .spacer {
+    flex: 1;
+  }
+  
+  /* Style pour les liens de navigation */
+  nav[mat-tab-nav-bar] a {
+    font-size: 1rem; /* Taille de la police */
+    color: white; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.5rem 1rem; /* Espacement interne */
+    border-radius: 4px; /* Coins arrondis */
+    text-decoration: none; /* Supprime le soulignement */
+  }
+  
+  nav[mat-tab-nav-bar] a.active {
+    background-color: #1565c0; /* Couleur pour le lien actif */
+  }
+  
+  nav[mat-tab-nav-bar] a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Effet de survol */
+  }
+
+  a[mat-tab-link].active {
+    background-color: #1565c0; /* Couleur pour le lien actif */
+  }
+  

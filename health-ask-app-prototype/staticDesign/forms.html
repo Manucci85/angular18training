@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Formulaires</title>
+  <!-- Charger les styles du header -->
+  <link rel="stylesheet" href="header.css">
+  <!-- Charger les styles généraux -->
+  <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
+          <li><a href="./patients.html">Gestion des Patients</a></li>
+          <li><a href="./forms.html" class="active">Gestion des Formulaires</a></li>
+          <li><a href="./login.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Forms Section -->
+    <section class="forms">
+      <h2>Liste des Formulaires</h2>
+      <table class="forms-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom du Formulaire</th>
+          <th>Questions</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bilan de santé</td>
+          <td>
+            - Avez-vous des allergies ?<br>
+            - Prenez-vous des médicaments ?<br>
+            <button class="btn view-more-btn" onclick="showModal('Bilan de santé', ['Avez-vous des allergies ?', 'Prenez-vous des médicaments ?', 'Avez-vous un historique familial ?'])">
+              Voir plus
+            </button>
+          </td>
+          <td>
+            <!--<button class="btn view-btn">Voir</button>-->
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+            <button class="btn send-btn">Envoyer</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Antécédents médicaux</td>
+          <td>
+            - Avez-vous déjà été hospitalisé ?<br>
+            - Avez-vous des antécédents familiaux ?<br>
+            <button class="btn view-more-btn" onclick="showModal('Antécédents médicaux', ['Avez-vous déjà été hospitalisé ?', 'Avez-vous des antécédents familiaux ?', 'Avez-vous subi une intervention chirurgicale ?'])">
+              Voir plus
+            </button>
+          </td>
+          <td>
+            <!--<button class="btn view-btn">Voir</button>-->
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+            <button class="btn send-btn">Envoyer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="btn page-btn">Précédent</button>
+        <button class="btn page-btn active">1</button>
+        <button class="btn page-btn">2</button>
+        <button class="btn page-btn">3</button>
+        <button class="btn page-btn">Suivant</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" id="draggable-modal">
+      <div class="modal-header" id="modal-header">
+        <h2 id="modal-title">Détails du Formulaire</h2>
+        <button class="close-btn" onclick="closeModal()">Fermer</button>
+      </div>
+      <div class="modal-body">
+        <ul id="modal-questions">
+          <!-- Les questions seront injectées ici -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<!-- Script for Modal -->
+<script>
+
+  function showModal(title, questions) {
+    // Injecter le titre et les questions dans le modal
+    document.getElementById('modal-title').innerText = title;
+    const questionsList = document.getElementById('modal-questions');
+    questionsList.innerHTML = questions.map((q) => `<li>${q}</li>`).join('');
+
+    // Afficher le modal
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    // Masquer le modal
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  const modal = document.getElementById('draggable-modal');
+  const modalHeader = document.getElementById('modal-header');
+
+  // Début du déplacement
+  modalHeader.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    const rect = modal.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    modal.style.transition = "none"; // Désactiver la transition pendant le drag
+    document.body.style.userSelect = "none"; // Désactiver la sélection de texte
+  });
+
+  // Déplacement
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+
+      modal.style.left = `${x}px`;
+      modal.style.top = `${y}px`;
+    }
+  });
+
+  // Fin du déplacement
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      modal.style.transition = ""; // Réactiver la transition
+      document.body.style.userSelect = ""; // Réactiver la sélection de texte
+    }
+  });
+
+
+</script>
+</body>
+</html>

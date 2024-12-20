@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="patient-dashboard.css">
+</head>
+<body>
+<div class="patient-dashboard">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Espace Patient</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Welcome Section -->
+    <section class="welcome">
+      <h2>Bonjour, <span id="patient-name">Jean Dupont</span></h2>
+      <p>Bienvenue dans votre espace patient. Gérez vos formulaires et données ci-dessous :</p>
+    </section>
+
+    <!-- Actions Section -->
+    <section class="actions">
+      <div class="card">
+        <h3>Vos Formulaires</h3>
+        <p>Voir et répondre aux formulaires envoyés par votre médecin.</p>
+        <button class="btn" onclick="showFormDataSection()">Voir mes formulaires</button>
+      </div>
+      <div class="card">
+        <h3>Afficher Mes Données</h3>
+        <p>Consultez toutes les données enregistrées sur vous.</p>
+        <button class="btn" onclick="showUserDataSection()">Afficher mes données</button>
+      </div>
+      <div class="card">
+        <h3>Supprimer Mes Données</h3>
+        <p>Supprimez toutes vos données personnelles et médicales.</p>
+        <button class="btn" onclick="showDeleteUserSection()">Supprimer mes données</button>
+      </div>
+    </section>
+
+    <!-- Formulaires Section -->
+    <section id="form-data-section" class="formulaires" style="display: none;">
+      <div class="form-data-header">
+        <h2>Mes Formulaires</h2>
+        <button class="close-btn" onclick="hideFormDataSection()">&times;</button>
+      </div>
+      <div class="form-data-content">
+        <ul>
+          <li><button class="btn" onclick="showFormDetails('Avant Première Consultation')">Avant Première Consultation</button></li>
+          <li><button class="btn" onclick="showFormDetails('Questionnaire Maux de Tête')">Questionnaire Maux de Tête</button></li>
+          <li><button class="btn" onclick="showFormDetails('Questionnaire Stress')">Questionnaire Stress</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section pour afficher les données utilisateur -->
+    <section id="user-data-section" class="user-data" style="display: none;">
+      <div class="user-data-header">
+        <h2>Mes Données</h2>
+        <button class="close-btn" onclick="hideUserDataSection()">&times;</button>
+      </div>
+      <div class="user-data-content">
+        <ul>
+          <li><strong>Nom :</strong> Jean Dupont</li>
+          <li><strong>Email :</strong> jean.dupont@example.com</li>
+          <li><strong>Historique médical :</strong> Aucune allergie, asthme léger</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section pour afficher les informations de suppression des données -->
+    <section id="delete-user-content" class="delete-user" style="display: none;">
+      <div class="delete-user-header">
+        <h2>Suppression des données</h2>
+        <button class="close-btn" onclick="hideDeleteUserSection()">&times;</button>
+      </div>
+      <div class="delete-user-body">
+        <p>Conformément au RGPD, la suppression de vos données personnelles implique :</p>
+        <ul>
+          <li>Effacement complet de vos données personnelles et médicales de nos systèmes.</li>
+          <li>Aucune utilisation ou consultation de vos données après la suppression.</li>
+          <li>Un délai de traitement maximum de 30 jours pour compléter cette action.</li>
+        </ul>
+        <p>
+          Si vous confirmez la suppression, vos données seront effacées de manière irréversible.
+        </p>
+        <button class="btn delete-btn" onclick="confirmDataDeletion()">Confirmer la suppression</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Modals -->
+  <!-- View Data Modal -->
+  <div id="view-data-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('view-data-modal')">&times;</span>
+      <h2>Vos Données</h2>
+      <ul class="data-list">
+        <li>Nom : Jean Dupont</li>
+        <li>Email : jean.dupont@example.com</li>
+        <li>Historique médical : Aucune allergie, Asthme léger</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="form-details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('form-details-modal')">&times;</span>
+      <h2 id="form-title"></h2>
+      <div id="form-content">
+        <!-- les questions et réponses seront injectées ici -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="patient-dashboard.js"></script>
+</body>
+</html>

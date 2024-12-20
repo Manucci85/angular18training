@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Application Médicale</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="login-page">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+    </div>
+  </header>
+  <main class="main">
+    <section class="login-choice">
+      <h2>Bienvenue !</h2>
+      <p>Veuillez choisir votre profil pour vous connecter.</p>
+      <div class="button-group">
+        <button id="btn-patient" class="btn" onclick="showLogin('patient')">Je suis patient</button>
+        <button id="btn-medecin" class="btn" onclick="showLogin('medecin')">Je suis médecin</button>
+      </div>
+    </section>
+
+    <!-- Login for Patient -->
+    <section id="login-patient" class="login-form" style="display: none;">
+      <h3>Connexion Patient</h3>
+      <form onsubmit="handleLogin(event, 'patient')">
+        <label for="patient-email">Email :</label>
+        <input type="email" id="patient-email" name="email" required>
+        <label for="patient-password">Mot de passe :</label>
+        <input type="password" id="patient-password" name="password" required>
+        <button type="submit" class="btn">Se connecter</button>
+      </form>
+    </section>
+
+    <!-- Login for Medecin -->
+    <section id="login-medecin" class="login-form" style="display: none;">
+      <h3>Connexion Médecin</h3>
+      <form onsubmit="handleLogin(event, 'medecin')">
+        <label for="medecin-email">Email :</label>
+        <input type="email" id="medecin-email" name="email" required>
+        <label for="medecin-password">Mot de passe :</label>
+        <input type="password" id="medecin-password" name="password" required>
+        <button type="submit" class="btn">Se connecter</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

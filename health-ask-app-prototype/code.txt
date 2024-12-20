@@ -1,0 +1,2047 @@
+dashboard.css
+/* Main content styles */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.dashboard-banner {
+  background-color: #e3f2fd;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-banner h2 {
+  font-size: 2rem;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-banner p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.metrics {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.activity {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.activity-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.activity-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.activity-list li strong {
+  color: #1976d2;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Charger les styles du header -->
+  <link rel="stylesheet" href="header.css">
+  <!-- Charger les styles généraux -->
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="patients.html">Gestion des Patients</a></li>
+          <li><a href="forms.html">Gestion des Formulaires</a></li>
+          <li><a href="login.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <section class="dashboard-banner">
+      <h2>Bienvenue sur le Dashboard</h2>
+      <p>Visualisez les métriques et activités récentes de vos patients et formulaires.</p>
+    </section>
+    <section class="metrics">
+      <div class="card">
+        <h2>Patients</h2>
+        <p><strong>Total :</strong> 150</p>
+        <p><strong>Actifs :</strong> 120</p>
+      </div>
+      <div class="card">
+        <h2>Formulaires Envoyés</h2>
+        <p><strong>Total :</strong> 300</p>
+        <p><strong>En attente :</strong> 50</p>
+      </div>
+      <div class="card">
+        <h2>Formulaires Répondus</h2>
+        <p><strong>Total :</strong> 250</p>
+        <p><strong>Taux de Réponse :</strong> 83%</p>
+      </div>
+    </section>
+    <section class="activity">
+      <h2>Activité Récente</h2>
+      <ul class="activity-list">
+        <li><strong>Patient 1</strong> a répondu au formulaire "Bilan de santé".</li>
+        <li><strong>Patient 2</strong> a reçu le formulaire "Consentement".</li>
+        <li><strong>Patient 3</strong> a complété le formulaire "Antécédents médicaux".</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
+
+forms.css
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Main content styles */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+/* Forms Section */
+.forms {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.forms h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+.forms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.forms-table th,
+.forms-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.forms-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.forms-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.forms-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.forms-table td {
+  vertical-align: top;
+}
+
+.view-more-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.view-more-btn:hover {
+  color: #0d47a1;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+
+.view-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #1565c0;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e6a700;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.send-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.send-btn:hover {
+  background-color: #218838;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.page-btn {
+  background-color: #1976d2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: #1565c0;
+}
+
+.page-btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay sombre */
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: absolute;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  z-index: 20;
+}
+
+.modal-header {
+  background-color: #1976d2;
+  color: white;
+  padding: 1rem;
+  cursor: move; /* Indique que cet élément est déplaçable */
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.close-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+forms.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Formulaires</title>
+  <!-- Charger les styles du header -->
+  <link rel="stylesheet" href="header.css">
+  <!-- Charger les styles généraux -->
+  <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
+          <li><a href="./patients.html">Gestion des Patients</a></li>
+          <li><a href="./forms.html" class="active">Gestion des Formulaires</a></li>
+          <li><a href="./login.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Forms Section -->
+    <section class="forms">
+      <h2>Liste des Formulaires</h2>
+      <table class="forms-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom du Formulaire</th>
+          <th>Questions</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bilan de santé</td>
+          <td>
+            - Avez-vous des allergies ?<br>
+            - Prenez-vous des médicaments ?<br>
+            <button class="btn view-more-btn" onclick="showModal('Bilan de santé', ['Avez-vous des allergies ?', 'Prenez-vous des médicaments ?', 'Avez-vous un historique familial ?'])">
+              Voir plus
+            </button>
+          </td>
+          <td>
+            <!--<button class="btn view-btn">Voir</button>-->
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+            <button class="btn send-btn">Envoyer</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Antécédents médicaux</td>
+          <td>
+            - Avez-vous déjà été hospitalisé ?<br>
+            - Avez-vous des antécédents familiaux ?<br>
+            <button class="btn view-more-btn" onclick="showModal('Antécédents médicaux', ['Avez-vous déjà été hospitalisé ?', 'Avez-vous des antécédents familiaux ?', 'Avez-vous subi une intervention chirurgicale ?'])">
+              Voir plus
+            </button>
+          </td>
+          <td>
+            <!--<button class="btn view-btn">Voir</button>-->
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+            <button class="btn send-btn">Envoyer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="btn page-btn">Précédent</button>
+        <button class="btn page-btn active">1</button>
+        <button class="btn page-btn">2</button>
+        <button class="btn page-btn">3</button>
+        <button class="btn page-btn">Suivant</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" id="draggable-modal">
+      <div class="modal-header" id="modal-header">
+        <h2 id="modal-title">Détails du Formulaire</h2>
+        <button class="close-btn" onclick="closeModal()">Fermer</button>
+      </div>
+      <div class="modal-body">
+        <ul id="modal-questions">
+          <!-- Les questions seront injectées ici -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<!-- Script for Modal -->
+<script>
+
+  function showModal(title, questions) {
+    // Injecter le titre et les questions dans le modal
+    document.getElementById('modal-title').innerText = title;
+    const questionsList = document.getElementById('modal-questions');
+    questionsList.innerHTML = questions.map((q) => `<li>${q}</li>`).join('');
+
+    // Afficher le modal
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    // Masquer le modal
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  const modal = document.getElementById('draggable-modal');
+  const modalHeader = document.getElementById('modal-header');
+
+  // Début du déplacement
+  modalHeader.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    const rect = modal.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    modal.style.transition = "none"; // Désactiver la transition pendant le drag
+    document.body.style.userSelect = "none"; // Désactiver la sélection de texte
+  });
+
+  // Déplacement
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+
+      modal.style.left = `${x}px`;
+      modal.style.top = `${y}px`;
+    }
+  });
+
+  // Fin du déplacement
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      modal.style.transition = ""; // Réactiver la transition
+      document.body.style.userSelect = ""; // Réactiver la sélection de texte
+    }
+  });
+
+
+</script>
+</body>
+</html>
+
+header.css
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header styles */
+.header {
+  background-color: #1976d2;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*max-width: 1200px;*/
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav ul li a.active {
+  background-color: #1565c0;
+}
+
+.nav ul li a:hover {
+  background-color: #0d47a1;
+}
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Application</title>
+  <!-- Charger les styles du header -->
+  <link rel="stylesheet" href="header.css">
+  <!-- Charger les styles généraux -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="patients.html">Gestion des Patients</a></li>
+          <li><a href="forms.html">Gestion des Formulaires</a></li>
+          <li><a href="login.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <section class="hero">
+      <h2>Bienvenue dans votre application médicale</h2>
+      <p>Accédez facilement à vos outils pour gérer les patients, les formulaires et consulter votre tableau de bord.</p>
+      <div class="cta-buttons">
+        <a href="./dashboard.html" class="btn">Accéder au Dashboard</a>
+        <a href="./patients.html" class="btn">Gestion des Patients</a>
+        <a href="./forms.html" class="btn">Gestion des Formulaires</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
+
+login.css
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 3rem; /* Espacement entre les sections */
+}
+
+.login-choice {
+  text-align: center;
+}
+
+.login-choice h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+.login-choice p {
+  margin-bottom: 2rem; /* Augmenter l'espace entre le texte et les boutons */
+  font-size: 1.25rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 2rem; /* Espacement entre les deux boutons */
+  justify-content: center;
+}
+
+/* Boutons généraux */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.login-form .btn {
+  width: 100%; /* Largeur pleine pour une meilleure ergonomie */
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.button-group .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-group .btn:hover {
+  background-color: #1565c0;
+}
+
+/* Si un seul bouton est affiché */
+.button-group .btn:only-child {
+  margin: 0 auto; /* Centrer le bouton unique */
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 3rem; /* Augmenter l'espace entre le bouton et la section de login */
+  text-align: center;
+}
+
+.login-form h3 {
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Application Médicale</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="login-page">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+    </div>
+  </header>
+  <main class="main">
+    <section class="login-choice">
+      <h2>Bienvenue !</h2>
+      <p>Veuillez choisir votre profil pour vous connecter.</p>
+      <div class="button-group">
+        <button id="btn-patient" class="btn" onclick="showLogin('patient')">Je suis patient</button>
+        <button id="btn-medecin" class="btn" onclick="showLogin('medecin')">Je suis médecin</button>
+      </div>
+    </section>
+
+    <!-- Login for Patient -->
+    <section id="login-patient" class="login-form" style="display: none;">
+      <h3>Connexion Patient</h3>
+      <form onsubmit="handleLogin(event, 'patient')">
+        <label for="patient-email">Email :</label>
+        <input type="email" id="patient-email" name="email" required>
+        <label for="patient-password">Mot de passe :</label>
+        <input type="password" id="patient-password" name="password" required>
+        <button type="submit" class="btn">Se connecter</button>
+      </form>
+    </section>
+
+    <!-- Login for Medecin -->
+    <section id="login-medecin" class="login-form" style="display: none;">
+      <h3>Connexion Médecin</h3>
+      <form onsubmit="handleLogin(event, 'medecin')">
+        <label for="medecin-email">Email :</label>
+        <input type="email" id="medecin-email" name="email" required>
+        <label for="medecin-password">Mot de passe :</label>
+        <input type="password" id="medecin-password" name="password" required>
+        <button type="submit" class="btn">Se connecter</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
+
+login.js
+function showLogin(type) {
+  const patientBtn = document.getElementById('btn-patient');
+  const medecinBtn = document.getElementById('btn-medecin');
+  const patientLogin = document.getElementById('login-patient');
+  const medecinLogin = document.getElementById('login-medecin');
+
+  if (type === 'patient') {
+    // Afficher le login patient et cacher son bouton
+    patientLogin.style.display = 'block';
+    patientBtn.style.display = 'none';
+    // Afficher le bouton médecin si caché
+    medecinBtn.style.display = 'inline-block';
+    medecinLogin.style.display = 'none';
+  } else if (type === 'medecin') {
+    // Afficher le login médecin et cacher son bouton
+    medecinLogin.style.display = 'block';
+    medecinBtn.style.display = 'none';
+    // Afficher le bouton patient si caché
+    patientBtn.style.display = 'inline-block';
+    patientLogin.style.display = 'none';
+  }
+}
+
+function handleLogin(event, type) {
+  event.preventDefault(); // Empêcher le rechargement de la page
+
+  if (type === 'patient') {
+    // Redirection vers la page patient
+    window.location.href = '/Users/emmanuel/gitProjects/angular18training/health-ask-app-prototype/staticDesign/patient-dashboard.html';
+  } else if (type === 'medecin') {
+    // Redirection vers la page dashboard
+    window.location.href = '/Users/emmanuel/gitProjects/angular18training/health-ask-app-prototype/staticDesign/dashboard.html';
+  }
+}
+
+patient-dashboard.css
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.patient-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+}
+
+.header {
+  background-color: #1976d2;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.welcome {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome h2 {
+  color: #1976d2;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: center;
+}
+
+.card h3 {
+  color: #1976d2;
+}
+
+.card p {
+  margin: 1rem 0;
+}
+
+.card .btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.card .btn:hover {
+  background-color: #1565c0;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Formulaires Section */
+.formulaires {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulaire-item {
+  margin-bottom: 1.5rem;
+}
+
+.formulaire-item h3 {
+  color: #1976d2;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.modal {
+  display: none; /* Cacher par défaut */
+  position: fixed; /* Fixé par rapport à la fenêtre */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay sombre */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  z-index: 1000; /* Assure que le modal est au-dessus de tout */
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative; /* Permet de positionner la croix */
+  text-align: center;
+  z-index: 1001;
+}
+
+/* Titre */
+.modal-content h2 {
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+}
+
+/* Liste des données */
+.data-list {
+  list-style: none; /* Supprime les puces */
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.data-list li {
+   margin-bottom: 0.5rem; /* Espacement entre chaque donnée */
+   color: #555;
+ }
+
+/* Bouton Fermer (Croix) */
+/*.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #555;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}*/
+
+/*.close-btn:hover {
+  color: #e74c3c;
+}*/
+
+/* Formulaire */
+form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Espacement entre les questions */
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: none; /* Désactive le redimensionnement */
+}
+
+textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* Bouton Soumettre */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*.btn:hover {
+  background-color: #1565c0;
+}
+*/
+.user-data {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 1rem;
+}
+
+.user-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.user-data-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1976d2;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+.user-data-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.user-data-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.form-data-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.form-data-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.form-data-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-data-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1976d2;
+}
+
+.delete-user {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 1rem;
+}
+
+.delete-user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.delete-user-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+.delete-user-body p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.delete-user-body ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.delete-user-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+patient-dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="patient-dashboard.css">
+</head>
+<body>
+<div class="patient-dashboard">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Espace Patient</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Welcome Section -->
+    <section class="welcome">
+      <h2>Bonjour, <span id="patient-name">Jean Dupont</span></h2>
+      <p>Bienvenue dans votre espace patient. Gérez vos formulaires et données ci-dessous :</p>
+    </section>
+
+    <!-- Actions Section -->
+    <section class="actions">
+      <div class="card">
+        <h3>Vos Formulaires</h3>
+        <p>Voir et répondre aux formulaires envoyés par votre médecin.</p>
+        <button class="btn" onclick="showFormDataSection()">Voir mes formulaires</button>
+      </div>
+      <div class="card">
+        <h3>Afficher Mes Données</h3>
+        <p>Consultez toutes les données enregistrées sur vous.</p>
+        <button class="btn" onclick="showUserDataSection()">Afficher mes données</button>
+      </div>
+      <div class="card">
+        <h3>Supprimer Mes Données</h3>
+        <p>Supprimez toutes vos données personnelles et médicales.</p>
+        <button class="btn" onclick="showDeleteUserSection()">Supprimer mes données</button>
+      </div>
+    </section>
+
+    <!-- Formulaires Section -->
+    <section id="form-data-section" class="formulaires" style="display: none;">
+      <div class="form-data-header">
+        <h2>Mes Formulaires</h2>
+        <button class="close-btn" onclick="hideFormDataSection()">&times;</button>
+      </div>
+      <div class="form-data-content">
+        <ul>
+          <li><button class="btn" onclick="showFormDetails('Avant Première Consultation')">Avant Première Consultation</button></li>
+          <li><button class="btn" onclick="showFormDetails('Questionnaire Maux de Tête')">Questionnaire Maux de Tête</button></li>
+          <li><button class="btn" onclick="showFormDetails('Questionnaire Stress')">Questionnaire Stress</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section pour afficher les données utilisateur -->
+    <section id="user-data-section" class="user-data" style="display: none;">
+      <div class="user-data-header">
+        <h2>Mes Données</h2>
+        <button class="close-btn" onclick="hideUserDataSection()">&times;</button>
+      </div>
+      <div class="user-data-content">
+        <ul>
+          <li><strong>Nom :</strong> Jean Dupont</li>
+          <li><strong>Email :</strong> jean.dupont@example.com</li>
+          <li><strong>Historique médical :</strong> Aucune allergie, asthme léger</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section pour afficher les informations de suppression des données -->
+    <section id="delete-user-content" class="delete-user" style="display: none;">
+      <div class="delete-user-header">
+        <h2>Suppression des données</h2>
+        <button class="close-btn" onclick="hideDeleteUserSection()">&times;</button>
+      </div>
+      <div class="delete-user-body">
+        <p>Conformément au RGPD, la suppression de vos données personnelles implique :</p>
+        <ul>
+          <li>Effacement complet de vos données personnelles et médicales de nos systèmes.</li>
+          <li>Aucune utilisation ou consultation de vos données après la suppression.</li>
+          <li>Un délai de traitement maximum de 30 jours pour compléter cette action.</li>
+        </ul>
+        <p>
+          Si vous confirmez la suppression, vos données seront effacées de manière irréversible.
+        </p>
+        <button class="btn delete-btn" onclick="confirmDataDeletion()">Confirmer la suppression</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Modals -->
+  <!-- View Data Modal -->
+  <div id="view-data-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('view-data-modal')">&times;</span>
+      <h2>Vos Données</h2>
+      <ul class="data-list">
+        <li>Nom : Jean Dupont</li>
+        <li>Email : jean.dupont@example.com</li>
+        <li>Historique médical : Aucune allergie, Asthme léger</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="form-details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('form-details-modal')">&times;</span>
+      <h2 id="form-title"></h2>
+      <div id="form-content">
+        <!-- les questions et réponses seront injectées ici -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="patient-dashboard.js"></script>
+</body>
+</html>
+
+patient-dashboard.js
+// Afficher un modal
+function showModal(modalId) {
+  console.log("Opening modal:"+modalId);
+  const modal = document.getElementById(modalId);
+  if(modal){
+    modal.style.display='flex';
+  }else{
+    console.error("Modal not found:",modalId);
+  }
+}
+
+// Fermer un modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+// Soumettre un formulaire
+function submitForm(event) {
+  event.preventDefault();
+  alert('Formulaire soumis avec succès.');
+  closeModal('respond-form-modal');
+}
+
+// Supprimer les données
+function deleteData() {
+  alert('Vos données ont été envoyées par email et supprimées.');
+  window.location.href = 'login.html'; // Redirige vers la page de login
+}
+
+// Se déconnecter
+function logout() {
+  alert('Vous avez été déconnecté.');
+  window.location.href = 'login.html';
+}
+
+document.querySelectorAll('.btn').forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const modalId = button.getAttribute('data-modal-id');
+    if (modalId) showModal(modalId);
+  });
+});
+
+// Liste des formulaires avec leurs questions et réponses
+const formDetails = {
+  "Avant Première Consultation": [
+    { question: "Avez-vous déjà consulté un médecin pour ce problème ?", answer: "Oui" },
+    { question: "Avez-vous des antécédents médicaux ?", answer: "Non" }
+  ],
+  "Questionnaire Maux de Tête": [
+    { question: "À quelle fréquence avez-vous des maux de tête ?", answer: "Une fois par semaine" },
+    { question: "Quels traitements utilisez-vous ?", answer: "Paracétamol" }
+  ],
+  "Questionnaire Stress": [
+    { question: "Comment évaluez-vous votre niveau de stress ?", answer: "Modéré" },
+    { question: "Quels facteurs provoquent ce stress ?", answer: "Travail, famille" }
+  ]
+};
+
+// Afficher la section des formulaires
+
+function showFormDataSection(){
+  const userDataSection = document.getElementById('user-data-section');
+  const formDataSection = document.getElementById('form-data-section');
+
+  if(userDataSection.style.display=='block'){
+    userDataSection.style.display='none';
+  }
+
+  formDataSection.style.display='block';
+
+}
+
+// Afficher les détails d'un formulaire dans un modal
+function showFormDetails(formName) {
+  const modal = document.getElementById('form-details-modal');
+  const titleElement = document.getElementById('form-title');
+  const contentElement = document.getElementById('form-content');
+
+  // Injecter les détails du formulaire
+  titleElement.innerText = formName;
+  contentElement.innerHTML = formDetails[formName]
+    .map(item => `<p><strong>${item.question}</strong>: ${item.answer}</p>`)
+    .join('');
+
+  // Afficher le modal
+  modal.style.display = 'flex';
+}
+
+// Fermer un modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+
+function showUserDataSection(){
+  const userDataSection = document.getElementById('user-data-section');
+  const formulairesSection = document.getElementById('form-data-section');
+
+  if(formulairesSection.style.display=='block'){
+    formulairesSection.style.display='none';
+  }
+
+  userDataSection.style.display='block';
+
+}
+
+function hideUserDataSection(){
+  const userDataSection = document.getElementById('user-data-section');
+  userDataSection.style.display='none';
+}
+
+function hideFormDataSection(){
+  const userDataSection = document.getElementById('form-data-section');
+  userDataSection.style.display='none';
+}
+
+// Fonction pour afficher la section de suppression des données
+function showDeleteUserSection() {
+  const deleteUserSection = document.getElementById('delete-user-content');
+  const formulairesSection = document.getElementById('form-data-section');
+  const userDataSection = document.getElementById('user-data-section');
+
+  // Masquer les autres sections si elles sont visibles
+  if (formulairesSection.style.display === 'block') {
+    formulairesSection.style.display = 'none';
+  }
+  if (userDataSection.style.display === 'block') {
+    userDataSection.style.display = 'none';
+  }
+
+  // Afficher la section de suppression des données
+  deleteUserSection.style.display = 'block';
+}
+
+// Fonction pour masquer la section de suppression des données
+function hideDeleteUserSection() {
+  const deleteUserSection = document.getElementById('delete-user-content');
+  deleteUserSection.style.display = 'none';
+}
+
+// Fonction pour confirmer la suppression des données
+function confirmDataDeletion() {
+  alert('Vos données ont été supprimées. Un email de confirmation vous sera envoyé.');
+  // Logique pour effectuer la suppression des données
+  hideDeleteUserSection();
+  logout();
+}
+
+patient.css
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.client-space {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background-color: #1976d2;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.charte {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+.charte h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+.charte p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.charte ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.charte ul li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.charte a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.charte a:hover {
+  color: #0d47a1;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+patient.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Client</title>
+  <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+<div class="client-space">
+  <!-- Header -->
+  <header class="header">
+    <h1 class="logo">Application Médicale</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <section class="charte">
+      <h2>Charte d'utilisation</h2>
+      <p>
+        Afin de vous offrir un suivi médical optimal et de permettre à votre médecin de communiquer avec vous via cette application, vous devez accepter la présente charte d'utilisation.
+      </p>
+      <p>
+        Cette application stocke vos données personnelles et médicales conformément aux lois européennes et belges sur la protection des données. Ces données sont utilisées uniquement pour la continuité de vos soins et ne seront jamais partagées sans votre consentement.
+      </p>
+      <p>
+        Vous pouvez à tout moment :
+      </p>
+      <ul>
+        <li>
+          <a href="/view-data.html">Consulter les données vous concernant</a>
+        </li>
+        <li>
+          <a href="/delete-data-request.html">Faire une demande de suppression de vos données</a>
+        </li>
+      </ul>
+      <p>
+        En acceptant cette charte, vous autorisez :
+      </p>
+      <ul>
+        <li>
+          Votre médecin à utiliser cette application pour communiquer avec vous et suivre vos données médicales.
+        </li>
+        <li>
+          L'application à stocker vos données personnelles et médicales dans le respect des lois applicables.
+        </li>
+      </ul>
+      <p>
+        Pour plus d'informations, veuillez consulter :
+      </p>
+      <ul>
+        <li>
+          <a href="https://gdpr-info.eu/" target="_blank">Le texte complet du RGPD</a>
+        </li>
+        <li>
+          <a href="https://www.privacycommission.be/fr" target="_blank">Les directives belges sur le RGPD</a>
+        </li>
+        <li>
+          <a href="https://www.health.belgium.be/fr/sante/professions-de-sante/statistiques-et-planning/protection-des-donnees" target="_blank">Les lois sur le traitement des données médicales en Belgique</a>
+        </li>
+      </ul>
+      <form id="accept-charte-form" onsubmit="acceptCharte(event)">
+        <button type="submit" class="btn">Accepter la charte</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<script>
+  function acceptCharte(event) {
+    event.preventDefault();
+    alert("Charte acceptée. Vous pouvez accéder à l'espace client.");
+    window.location.href = "/health-ask-app-prototype/health-ask-app-prototype/staticDesign/patient-dashboard.html"; // Redirection vers l'espace client
+  }
+</script>
+</body>
+</html>
+
+patients.css
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Main content styles */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+/* Metrics Section */
+.metrics {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Patients Table Section */
+.patients {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.patients h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.patients-table th,
+.patients-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.patients-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.patients-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.patients-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #1565c0;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e6a700;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+patients.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Patients</title>
+  <!-- Charger les styles du header -->
+  <link rel="stylesheet" href="header.css">
+  <!-- Charger les styles généraux -->
+  <link rel="stylesheet" href="patients.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application Médicale</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="patients.html" class="active">Gestion des Patients</a></li>
+          <li><a href="forms.html">Gestion des Formulaires</a></li>
+          <li><a href="./login.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Metrics Section -->
+    <section class="metrics">
+      <div class="card">
+        <h2>Patients Total</h2>
+        <p><strong>Total :</strong> 150</p>
+      </div>
+      <div class="card">
+        <h2>Patients Actifs</h2>
+        <p><strong>Actifs :</strong> 120</p>
+      </div>
+    </section>
+
+    <!-- Patients Table Section -->
+    <section class="patients">
+      <h2>Liste des Patients</h2>
+      <table class="patients-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Jean Dupont</td>
+          <td>jean.dupont@example.com</td>
+          <td>
+            <button class="btn view-btn">Voir</button>
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Marie Curie</td>
+          <td>marie.curie@example.com</td>
+          <td>
+            <button class="btn view-btn">Voir</button>
+            <button class="btn edit-btn">Modifier</button>
+            <button class="btn delete-btn">Supprimer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Application Médicale. Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
+
+styles.css
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons .btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #1976d2;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+  background-color: #1565c0;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.logout-btn {
+  margin-left: auto; /* Positionne le bouton de déconnexion à l'extrémité droite */
+}
+
